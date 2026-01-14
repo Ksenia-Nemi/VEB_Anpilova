@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №6 - Основы JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Лабораторная работа №6</h1>
+            <h2>Основы JavaScript</h2>
+            <p>Реализация различных функций на JavaScript с интерактивным интерфейсом</p>
+        </header>
+
+        <div class="tasks-grid">
+            
+            <!-- Задача 1: Возведение в степень -->
+            <div class="task-card">
+                <div class="task-header">
+                    <h3><i class="fas fa-calculator"></i> Задача 1: Возведение в степень</h3>
+                    <span class="task-number">1</span>
+                </div>
+                <div class="task-description">
+                    <p>Функция <code>pow(x, n)</code> возвращает x в степени n (умножает x на себя n раз).</p>
+                    <p>Поддерживает только натуральные значения n. Встроенную операцию возведения в степень использовать нельзя.</p>
+                </div>
+                <div class="task-inputs">
+                    <div class="input-group">
+                        <label for="pow-x">Основание (x):</label>
+                        <input type="number" id="pow-x" value="2" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="pow-n">Степень (n, натуральное):</label>
+                        <input type="number" id="pow-n" value="3" min="1" step="1">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculatePow()">
+                    <i class="fas fa-bolt"></i> Вычислить
+                </button>
+                <div class="task-result" id="pow-result">
+                    Результат появится здесь
+                </div>
+            </div>
+
+            <!-- Задача 2: Нахождение НОД -->
+            <div class="task-card">
+                <div class="task-header">
+                    <h3><i class="fas fa-divide"></i> Задача 2: Наибольший общий делитель</h3>
+                    <span class="task-number">2</span>
+                </div>
+                <div class="task-description">
+                    <p>Функция <code>gcd(a, b)</code> возвращает наибольший общий делитель двух неотрицательных чисел.</p>
+                    <p>Используется алгоритм Евклида для нахождения НОД.</p>
+                </div>
+                <div class="task-inputs">
+                    <div class="input-group">
+                        <label for="gcd-a">Число a:</label>
+                        <input type="number" id="gcd-a" value="48" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="gcd-b">Число b:</label>
+                        <input type="number" id="gcd-b" value="18" min="0">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateGcd()">
+                    <i class="fas fa-calculator"></i> Найти НОД
+                </button>
+                <div class="task-result" id="gcd-result">
+                    Результат появится здесь
+                </div>
+            </div>
+
+            <!-- Задача 3: Наименьшая цифра -->
+            <div class="task-card">
+                <div class="task-header">
+                    <h3><i class="fas fa-sort-numeric-down"></i> Задача 3: Наименьшая цифра</h3>
+                    <span class="task-number">3</span>
+                </div>
+                <div class="task-description">
+                    <p>Функция <code>minDigit(x)</code> возвращает наименьшую цифру целого неотрицательного числа x.</p>
+                    <p>Число преобразуется в строку, затем каждая цифра проверяется на минимальность.</p>
+                </div>
+                <div class="task-inputs">
+                    <div class="input-group">
+                        <label for="min-digit-x">Число x:</label>
+                        <input type="number" id="min-digit-x" value="5732" min="0">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateMinDigit()">
+                    <i class="fas fa-search"></i> Найти минимальную цифру
+                </button>
+                <div class="task-result" id="min-digit-result">
+                    Результат появится здесь
+                </div>
+            </div>
+
+            <!-- Задача 4: Pluralization -->
+            <div class="task-card">
+                <div class="task-header">
+                    <h3><i class="fas fa-language"></i> Задача 4: Склонение слов (Pluralization)</h3>
+                    <span class="task-number">4</span>
+                </div>
+                <div class="task-description">
+                    <p>Функция <code>pluralizeRecords(n)</code> возвращает строку с правильной формой множественного числа.</p>
+                    <p>Пример: "В результате выполнения запроса было найдено n записей"</p>
+                    <p>Правила русского языка: 1 запись, 2 записи, 5 записей.</p>
+                </div>
+                <div class="task-inputs">
+                    <div class="input-group">
+                        <label for="plural-n">Количество записей (n):</label>
+                        <input type="number" id="plural-n" value="5" min="0">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculatePlural()">
+                    <i class="fas fa-comment-alt"></i> Сформировать фразу
+                </button>
+                <div class="task-result" id="plural-result">
+                    Результат появится здесь
+                </div>
+            </div>
+
+            <!-- Задача 5: Числа Фибоначчи -->
+            <div class="task-card">
+                <div class="task-header">
+                    <h3><i class="fas fa-infinity"></i> Задача 5: Числа Фибоначчи</h3>
+                    <span class="task-number">5</span>
+                </div>
+                <div class="task-description">
+                    <p>Функция <code>fibb(n)</code> возвращает n-ое число из последовательности Фибоначчи.</p>
+                    <p>Работает для любого целого неотрицательного числа n ≤ 1000.</p>
+                    <p>Используется эффективный алгоритм с запоминанием предыдущих значений.</p>
+                </div>
+                <div class="task-inputs">
+                    <div class="input-group">
+                        <label for="fibb-n">Позиция n (0-1000):</label>
+                        <input type="number" id="fibb-n" value="10" min="0" max="1000">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateFibb()">
+                    <i class="fas fa-rocket"></i> Вычислить число Фибоначчи
+                </button>
+                <div class="task-result" id="fibb-result">
+                    Результат появится здесь
+                </div>
+            </div>
+
+            <!-- Кнопка для вычисления всех функций -->
+            <div class="task-card full-width">
+                <div class="task-header">
+                    <h3><i class="fas fa-play-circle"></i> Выполнить все вычисления</h3>
+                </div>
+                <div class="task-description">
+                    <p>Нажмите кнопку ниже, чтобы выполнить все функции сразу с текущими значениями из полей ввода.</p>
+                </div>
+                <button class="btn-calculate-all" onclick="calculateAll()">
+                    <i class="fas fa-bolt"></i> Выполнить все вычисления
+                </button>
+            </div>
+
+        </div>
+
+        
+        <footer>
+            <p>Лабораторная работа №6 - Основы JavaScript</p>
+            <p>Студент: <span id="student-name">Анпилова К.С.</span> | Группа: <span id="group">241-361</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

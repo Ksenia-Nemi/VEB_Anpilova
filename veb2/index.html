@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы обратной связи и аутентификации</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .forms-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .forms-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #3498db;
+        }
+
+        .file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 0.8rem 1rem;
+            background: #f8f9fa;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #7f8c8d;
+        }
+
+        .file-input-label:hover {
+            background: #ecf0f1;
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+
+        .form-links {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-links a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .form-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Добро пожаловать!</h1>
+        <p class="subtitle">Выберите нужную форму для работы</p>
+        
+        <div class="forms-container">
+            <!-- Форма аутентификации -->
+            <div class="form-card">
+                <h2 class="form-title">🔐 Форма аутентификации</h2>
+                
+                <form action="https://httpbin.org/post" method="POST">
+                    <div class="form-group">
+                        <label for="login" class="required">Логин</label>
+                        <input type="text" id="login" name="login" required placeholder="Введите ваш логин">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="required">Пароль</label>
+                        <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="remember">
+                            Запомнить меня
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Войти</button>
+
+                   
+                </form>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="form-card">
+                <h2 class="form-title">📝 Форма обратной связи</h2>
+                
+                <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fullname" class="required">ФИО</label>
+                        <input type="text" id="fullname" name="fullname" required placeholder="Введите ваше полное имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Откуда узнали о нас?</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="source" value="friend" required>
+                                От друга
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="source" value="internet">
+                                Из интернета
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="source" value="advertisement">
+                                Реклама
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="source" value="other">
+                                Другое
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type" class="required">Тип обращения</label>
+                        <select id="type" name="type" required>
+                            <option value="">Выберите тип обращения</option>
+                            <option value="complaint">Жалоба</option>
+                            <option value="suggestion">Предложение</option>
+                            <option value="question">Вопрос</option>
+                            <option value="feedback">Отзыв</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="required">Текст сообщения</label>
+                        <textarea id="message" name="message" required placeholder="Опишите ваше обращение подробно..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachment">Вложения</label>
+                        <div class="file-input">
+                            <input type="file" id="attachment" name="attachment" multiple>
+                            <label for="attachment" class="file-input-label">
+                                📎 Выберите файл (Файл не выбран)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="consent" required>
+                            <span class="required">Даю согласие на обработку персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Отправить обращение</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

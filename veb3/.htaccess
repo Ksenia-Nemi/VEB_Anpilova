@@ -1,0 +1,13 @@
+# Настройки для Apache
+DirectoryIndex index.php index.html
+
+# Разрешить выполнение PHP файлов
+AddHandler application/x-httpd-php .php
+
+# Включить перезапись URL
+RewriteEngine On
+
+# Если запрашивается корень, перенаправить на index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ index.php [L]

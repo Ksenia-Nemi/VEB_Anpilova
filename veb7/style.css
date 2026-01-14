@@ -1,0 +1,485 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffafcc 0%, #ffc8dd 50%, #cdb4db 100%);
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Фон с сердечками */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff99cc' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+    z-index: -1;
+}
+
+/* Контейнер калькулятора */
+.calculator-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3),
+                inset 0 0 25px rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #ffafcc, #ffc8dd, #ffafcc, #ffc8dd);
+    z-index: -1;
+    filter: blur(25px);
+    opacity: 0.5;
+    border-radius: 30px;
+}
+
+/* Калькулятор */
+.calculator {
+    background: linear-gradient(145deg, #ffe5f0, #ffd1e0);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 
+        0 15px 35px rgba(255, 105, 180, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Шапка калькулятора */
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: #d63384;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.calculator-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive;
+    color: #c2185b;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.calculator-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    color: #e91e63;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.calculator-header i {
+    color: #ff4081;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Дисплей */
+.display-container {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.display-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #ff80ab, #ff4081, #ff80ab);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.expression-display {
+    width: 100%;
+    background: linear-gradient(to bottom, #fff5f9, #ffe5f0);
+    color: #880e4f;
+    border: 2px solid #ff80ab;
+    padding: 18px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    text-align: right;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.expression-display:hover {
+    border-color: #ff4081;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.result-display {
+    width: 100%;
+    background: linear-gradient(to bottom, #ffd1e0, #ffb3c6);
+    color: #ad1457;
+    border: 2px solid #ff4081;
+    padding: 22px 18px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: 
+        inset 0 5px 10px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(255, 105, 180, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.result-display:hover {
+    box-shadow: 
+        inset 0 5px 12px rgba(0, 0, 0, 0.2),
+        0 8px 20px rgba(255, 105, 180, 0.3);
+}
+
+/* Кнопки */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.btn {
+    height: 70px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 18px;
+    z-index: -1;
+}
+
+.btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для разных типов кнопок */
+.btn-number {
+    background: linear-gradient(145deg, #fff0f7, #ffd6e7);
+    color: #880e4f;
+    border: 2px solid #ff80ab;
+}
+
+.btn-number:hover {
+    background: linear-gradient(145deg, #ffd6e7, #ffc2d6);
+    color: #e91e63;
+}
+
+.btn-operator {
+    background: linear-gradient(145deg, #ff80ab, #ff4081);
+    color: white;
+    border: 2px solid #ff4081;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-operator:hover {
+    background: linear-gradient(145deg, #ff4081, #e91e63);
+    color: white;
+}
+
+.btn-clear {
+    background: linear-gradient(145deg, #ffb6c1, #ff8fa3);
+    color: white;
+    border: 2px solid #ff6b8b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-clear:hover {
+    background: linear-gradient(145deg, #ff8fa3, #ff6b8b);
+    color: white;
+}
+
+.btn-equals {
+    background: linear-gradient(145deg, #ff4081, #e91e63);
+    color: white;
+    border: 2px solid #e91e63;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-equals:hover {
+    background: linear-gradient(145deg, #e91e63, #c2185b);
+    color: white;
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-parenthesis {
+    background: linear-gradient(145deg, #e8b4d4, #d48bc8);
+    color: #7b1fa2;
+    border: 2px solid #ba68c8;
+}
+
+.btn-parenthesis:hover {
+    background: linear-gradient(145deg, #d48bc8, #ba68c8);
+    color: #4a148c;
+}
+
+/* Особые кнопки */
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-equals {
+    grid-column: span 2;
+}
+
+/* Инструкция */
+.instructions {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 204, 229, 0.6));
+    border-radius: 18px;
+    color: #880e4f;
+    border: 2px solid rgba(255, 128, 171, 0.6);
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.6),
+        0 10px 20px rgba(255, 105, 180, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.instructions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff80ab, #ff4081);
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: #e91e63;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.instructions h3 i {
+    color: #ff4081;
+    font-size: 1.4rem;
+}
+
+.instructions p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    padding-left: 5px;
+}
+
+/* Подвал */
+.footer {
+    text-align: center;
+    color: #e91e63;
+    font-size: 0.9rem;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 128, 171, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.footer i {
+    color: #ff4081;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    .calculator {
+        padding: 20px;
+    }
+    
+    .btn {
+        height: 65px;
+        font-size: 1.3rem;
+    }
+    
+    .calculator-title {
+        font-size: 1.6rem;
+    }
+    
+    .result-display {
+        font-size: 2rem;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .buttons-grid {
+        gap: 12px;
+    }
+    
+    .btn {
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .calculator-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Анимация для кнопок при нажатии */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.btn:active {
+    animation: buttonPress 0.15s ease;
+}
+
+/* Декоративные сердечки */
+.heart-decoration {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(255, 64, 129, 0.4);
+    z-index: -1;
+    animation: floatHeart 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+    25% { 
+        transform: translateY(-30px) rotate(10deg) scale(1.1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-60px) rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+    75% { 
+        transform: translateY(-30px) rotate(-10deg) scale(0.9);
+        opacity: 0.4;
+    }
+}
+
+/* Стили для анимаций результатов */
+.result-animation {
+    animation: resultPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.error-animation {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+.calculating {
+    animation: calculatingPulse 1s infinite;
+}
+
+.clear-animation {
+    animation: clearFade 0.3s ease-out;
+}
+
+@keyframes resultPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes calculatingPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes clearFade {
+    0% { opacity: 0.5; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

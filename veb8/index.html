@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facts about cats</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <img class="logo" src="static/images/cat_white.png" alt="Cat">
+            <div class="title">Facts about cats</div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Форма поиска -->
+            <div class="search-section">
+                <h2 class="search-title">Search cat facts</h2>
+                <form class="search-form" id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" 
+                               class="search-field" 
+                               id="searchField" 
+                               placeholder="Enter search term..."
+                               autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <span class="search-icon">🔍</span>
+                            Search
+                        </button>
+                    </div>
+                    <div class="autocomplete-container" id="autocompleteContainer"></div>
+                </form>
+            </div>
+
+            <!-- Информация о пагинации -->
+            <div class="pagination-info">
+                <div class="per-page-container">
+                    <span>Show per page:</span>
+                    <select class="per-page-btn">
+                        <option>5</option>
+                        <option>10</option>
+                        <option selected>20</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                </div>
+                <div class="current-interval-info">
+                    Showing <span class="current-interval-start">1</span> 
+                    to <span class="current-interval-end">3</span> 
+                    of <span class="total-count">3</span> records
+                </div>
+            </div>
+
+            <!-- Список фактов -->
+            <div class="facts-list" data-url="http://cat-facts-api.std-900.ist.mospolytech.ru/facts">
+                <!-- Контент будет загружен через JS -->
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <!-- Кнопки будут созданы через JS -->
+            </div>
+        </div>
+    </main>
+    <script src="static/main.js"></script>
+</body>
+</html>

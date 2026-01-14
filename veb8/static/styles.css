@@ -1,0 +1,278 @@
+/* Основные стили */
+body {
+    margin: 0;
+    background-color: #F2F5F1;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    background-color: #1d3557;
+    color: white;
+    padding: 20px 0;
+}
+
+.header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    margin-left: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Секция поиска */
+.search-section {
+    margin: 30px 0;
+}
+
+.search-title {
+    color: #1d3557;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.search-field {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-field:focus {
+    border-color: #1d3557;
+}
+
+.search-btn {
+    padding: 12px 25px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #2a4b8d;
+}
+
+.search-icon {
+    font-size: 14px;
+}
+
+/* Автодополнение */
+.autocomplete-container {
+    position: absolute;
+    width: calc(100% - 140px);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-item:hover {
+    background-color: #f5f5f5;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+/* Информация о пагинации */
+.pagination-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.per-page-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.per-page-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.current-interval-info {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Список фактов */
+.facts-list {
+    margin: 20px 0;
+}
+
+.facts-list-item {
+    background: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #e63946;
+}
+
+.item-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 14px;
+}
+
+.author-name {
+    font-weight: bold;
+    color: #1d3557;
+}
+
+.upvotes {
+    color: #e63946;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 15px;
+    background-color: white;
+    color: #1d3557;
+    border: 1px solid #1d3557;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #1d3557;
+    color: white;
+}
+
+.btn.active {
+    background-color: #1d3557;
+    color: white;
+    border-color: #1d3557;
+}
+
+/* Сообщение об отсутствии результатов */
+.no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: #666;
+    font-size: 18px;
+}
+
+.no-results-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .pagination-info {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .search-input-group {
+        flex-direction: column;
+    }
+    
+    .search-field {
+        width: 100%;
+    }
+    
+    .search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .autocomplete-container {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .header nav {
+        padding: 0 15px;
+    }
+}
